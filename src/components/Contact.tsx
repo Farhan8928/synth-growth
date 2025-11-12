@@ -150,7 +150,7 @@ export const Contact = () => {
           className="mt-20 text-center text-muted-foreground"
         >
           <p className="text-sm">
-            © 2025 Vikash Kumar · Performance Marketing Strategist · Built with ❤️
+            © 2025 Vikash Kumar · Performance Marketing Strategist
           </p>
         </motion.div>
       </div>
