@@ -1,25 +1,21 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, School, Trophy } from "lucide-react";
+import { GraduationCap, School } from "lucide-react";
 
 const education = [
   {
     icon: GraduationCap,
-    degree: "MBA in Digital Marketing",
-    institution: "Delhi School of Internet Marketing",
-    period: "2019",
+    degree: "Bachelor of Engineering (B.E.)",
+    institution: "Doon Valley Institute of Engineering & Technology",
+    period: "08/2008 - 05/2011",
+    location: "Karnal, India"
   },
   {
     icon: School,
-    degree: "B.Com",
-    institution: "University of Delhi",
-    period: "2015-2018",
-  },
-  {
-    icon: Trophy,
-    degree: "Google Ads Certification",
-    institution: "Google",
-    period: "2020",
+    degree: "Diploma in Computer Engineering",
+    institution: "Hindu Institute of Technology",
+    period: "08/2005 - 05/2008",
+    location: "Sonepat, India"
   },
 ];
 
@@ -59,7 +55,8 @@ export const Education = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-foreground mb-2">{edu.degree}</h3>
                   <p className="text-lg text-primary font-semibold mb-2">{edu.institution}</p>
-                  <p className="text-muted-foreground">{edu.period}</p>
+                  <p className="text-muted-foreground mb-1">{edu.period}</p>
+                  <p className="text-muted-foreground">{edu.location}</p>
                 </div>
 
                 {/* Glow effect on hover */}
