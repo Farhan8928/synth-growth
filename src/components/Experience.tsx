@@ -47,7 +47,7 @@ export const Experience = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 px-4 relative">
+    <section ref={ref} id="experience" className="py-32 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

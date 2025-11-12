@@ -1,8 +1,31 @@
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Linkedin } from "lucide-react";
+import { Mail, MapPin, Phone, Linkedin, Download, Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
+import { useState } from "react";
 
 export const Hero = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const handleNavigation = (sectionId: string) => {
+    // Close menu immediately
+    setIsMenuOpen(false);
+    
+    // Small delay to ensure menu closes before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        // Try multiple scroll methods for compatibility
+        try {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } catch (error) {
+          // Fallback to traditional method
+          element.scrollIntoView(true);
+        }
+      }
+    }, 150);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
       {/* Animated gradient background */}
@@ -17,6 +40,90 @@ export const Hero = () => {
           backgroundSize: "50px 50px",
         }}
       />
+
+      {/* Navigation Header */}
+      <div className="absolute top-4 left-4 right-4 z-20 flex justify-between items-center">
+        <nav className="hidden md:flex space-x-6">
+          <button 
+            onClick={() => handleNavigation('about')}
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            About
+          </button>
+          <button 
+            onClick={() => handleNavigation('experience')}
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            Experience
+          </button>
+          <button 
+            onClick={() => handleNavigation('education')}
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            Education
+          </button>
+          <button 
+            onClick={() => handleNavigation('contact')}
+            className="text-foreground hover:text-primary transition-colors font-medium"
+          >
+            Contact
+          </button>
+        </nav>
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-foreground focus:outline-none z-30"
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
+        >
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+        
+        <ThemeToggle />
+      </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-16 left-4 right-4 z-20 md:hidden">
+          <div className="bg-background/90 backdrop-blur-lg rounded-lg border border-border shadow-lg p-4">
+            <nav className="flex flex-col space-y-3">
+              <div 
+                onClick={() => {
+                  handleNavigation('about');
+                }}
+                className="text-foreground hover:text-primary transition-colors font-medium py-3 px-4 rounded-md hover:bg-primary/10 text-left w-full text-lg cursor-pointer"
+              >
+                About
+              </div>
+              <div 
+                onClick={() => {
+                  handleNavigation('experience');
+                }}
+                className="text-foreground hover:text-primary transition-colors font-medium py-3 px-4 rounded-md hover:bg-primary/10 text-left w-full text-lg cursor-pointer"
+              >
+                Experience
+              </div>
+              <div 
+                onClick={() => {
+                  handleNavigation('education');
+                }}
+                className="text-foreground hover:text-primary transition-colors font-medium py-3 px-4 rounded-md hover:bg-primary/10 text-left w-full text-lg cursor-pointer"
+              >
+                Education
+              </div>
+              <div 
+                onClick={() => {
+                  handleNavigation('contact');
+                }}
+                className="text-foreground hover:text-primary transition-colors font-medium py-3 px-4 rounded-md hover:bg-primary/10 text-left w-full text-lg cursor-pointer"
+              >
+                Contact
+              </div>
+            </nav>
+          </div>
+        </div>
+      )}
 
       {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto text-center">
@@ -82,7 +189,7 @@ export const Hero = () => {
               <span>vikaskaushik712@gmail.com</span>
             </a>
             <a 
-              href="https://www.linkedin.com/in/vikash-kumar-4a4a4a1a1"
+              href="https://www.linkedin.com/in/vikash-kumar-67784a18a/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-muted-foreground backdrop-blur-sm bg-card/30 px-4 py-2 rounded-full border border-border hover:border-primary transition-colors"

@@ -8,6 +8,57 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    --background: 0 0% 100%;
+    --foreground: 220 25% 8%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 220 25% 8%;
+
+    --popover: 0 0% 95%;
+    --popover-foreground: 220 25% 8%;
+
+    --primary: 210 100% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 170 70% 40%;
+    --secondary-foreground: 220 25% 8%;
+
+    --muted: 220 20% 90%;
+    --muted-foreground: 220 20% 35%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 20% 85%;
+    --input: 220 20% 88%;
+    --ring: 210 100% 60%;
+
+    --radius: 1rem;
+
+    /* Custom tokens for 3D portfolio */
+    --neon-blue: 210 100% 60%;
+    --neon-cyan: 170 70% 40%;
+    --neon-violet: 270 80% 60%;
+    --neon-pink: 320 85% 65%;
+    
+    --glass-bg: 0 0% 100% / 0.3;
+    --glass-border: 210 100% 60% / 0.2;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 60%), hsl(170 70% 40%));
+    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 60%), hsl(320 85% 65%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 95%));
+    
+    --glow-blue: 0 0 30px hsl(210 100% 60% / 0.5);
+    --glow-cyan: 0 0 30px hsl(170 70% 40% / 0.5);
+    --glow-violet: 0 0 30px hsl(270 80% 60% / 0.5);
+    
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+ 
+  .dark {
     --background: 220 25% 8%;
     --foreground: 210 40% 98%;
 
@@ -36,24 +87,11 @@ All colors MUST be HSL.
     --input: 220 20% 18%;
     --ring: 210 100% 60%;
 
-    --radius: 1rem;
-
     /* Custom tokens for 3D portfolio */
-    --neon-blue: 210 100% 60%;
-    --neon-cyan: 180 100% 50%;
-    --neon-violet: 270 80% 60%;
-    --neon-pink: 320 85% 65%;
-    
     --glass-bg: 220 20% 15% / 0.3;
     --glass-border: 210 100% 60% / 0.2;
     
-    --gradient-primary: linear-gradient(135deg, hsl(210 100% 60%), hsl(180 100% 50%));
-    --gradient-secondary: linear-gradient(135deg, hsl(270 80% 60%), hsl(320 85% 65%));
     --gradient-dark: linear-gradient(180deg, hsl(220 25% 8%), hsl(220 25% 4%));
-    
-    --glow-blue: 0 0 30px hsl(210 100% 60% / 0.5);
-    --glow-cyan: 0 0 30px hsl(180 100% 50% / 0.5);
-    --glow-violet: 0 0 30px hsl(270 80% 60% / 0.5);
     
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }

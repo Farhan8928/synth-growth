@@ -1,45 +1,39 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
+import { Send, Linkedin, Download, MapPin, Phone } from "lucide-react";
+
+const contactInfo = [
+  {
+    icon: Send,
+    label: "Email",
+    value: "vikaskaushik712@gmail.com",
+    href: "mailto:vikaskaushik712@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9034598364",
+    href: "tel:+919034598364",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Delhi, India",
+    href: null,
+  },
+];
 
 export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 9034598364",
-      href: "tel:+919034598364",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "vikaskaushik712@gmail.com",
-      href: "mailto:vikaskaushik712@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Delhi, India",
-      href: null,
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "Vikash Kumar",
-      href: "https://www.linkedin.com/in/vikash-kumar-4a4a4a1a1",
-    },
-  ];
-
   return (
-    <section id="contact" ref={ref} className="py-32 px-4 relative overflow-hidden">
+    <section ref={ref} id="contact" className="py-32 px-4 relative overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10" />
+      <div className="absolute inset-0 bg-gradient-dark" />
       
-      {/* Grid pattern */}
+      {/* Grid overlay */}
       <div 
         className="absolute inset-0 opacity-10"
         style={{
@@ -65,7 +59,7 @@ export const Contact = () => {
         </motion.div>
 
         {/* Contact info grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             return (
@@ -88,7 +82,7 @@ export const Contact = () => {
                       </div>
                       <div className="text-left">
                         <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                        <p className="text-lg font-semibold text-foreground">{info.value}</p>
+                        <p className="text-base sm:text-lg font-semibold text-foreground truncate">{info.value}</p>
                       </div>
                     </div>
                   </a>
@@ -100,7 +94,7 @@ export const Contact = () => {
                       </div>
                       <div className="text-left">
                         <p className="text-sm text-muted-foreground mb-1">{info.label}</p>
-                        <p className="text-lg font-semibold text-foreground">{info.value}</p>
+                        <p className="text-base sm:text-lg font-semibold text-foreground truncate">{info.value}</p>
                       </div>
                     </div>
                   </div>
@@ -117,23 +111,35 @@ export const Contact = () => {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button
-            size="lg"
-            className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-glow-blue transition-all duration-300 transform hover:scale-105"
-            onClick={() => window.location.href = "mailto:vikaskaushik712@gmail.com"}
-          >
-            <Send className="w-5 h-5 mr-2" />
-            Send a Message
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="text-lg px-8 py-6 border-primary hover:bg-primary/10 hover:shadow-glow-blue transition-all duration-300 transform hover:scale-105"
-            onClick={() => window.open("https://www.linkedin.com/in/vikash-kumar-4a4a4a1a1", "_blank")}
-          >
-            <Linkedin className="w-5 h-5 mr-2" />
-            Connect on LinkedIn
-          </Button>
+          <a href="mailto:vikaskaushik712@gmail.com">
+            <Button
+              size="lg"
+              className="text-lg px-8 py-6 bg-gradient-primary hover:shadow-glow-blue transition-all duration-300 transform hover:scale-105"
+            >
+              <Send className="w-5 h-5 mr-2" />
+              Send a Message
+            </Button>
+          </a>
+          <a href="https://www.linkedin.com/in/vikash-kumar-67784a18a/" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-6 border-primary hover:bg-primary/10 hover:shadow-glow-blue transition-all duration-300 transform hover:scale-105"
+            >
+              <Linkedin className="w-5 h-5 mr-2" />
+              Connect on LinkedIn
+            </Button>
+          </a>
+          <a href="/resume.pdf" download>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-lg px-8 py-6 border-primary hover:bg-primary/10 hover:shadow-glow-blue transition-all duration-300 transform hover:scale-105"
+            >
+              <Download className="w-5 h-5 mr-2" />
+              Download Resume
+            </Button>
+          </a>
         </motion.div>
 
         {/* Footer */}

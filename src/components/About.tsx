@@ -25,7 +25,7 @@ export const About = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 px-4 relative overflow-hidden">
+    <section ref={ref} id="about" className="py-32 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -87,7 +87,7 @@ export const About = () => {
                 >
                   <Badge
                     variant="secondary"
-                    className="text-sm px-4 py-2 bg-muted/50 border border-primary/20 hover:border-primary hover:shadow-glow-blue transition-all duration-300"
+                    className="text-sm px-4 py-2 bg-secondary/10 text-secondary border border-secondary/20 hover:bg-secondary/20 hover:border-secondary/40 hover:shadow-glow-cyan transition-all duration-300"
                   >
                     {skill}
                   </Badge>

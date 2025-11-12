@@ -1,19 +1,25 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Monitor } from "lucide-react";
+import { GraduationCap, School, Trophy } from "lucide-react";
 
 const education = [
   {
-    degree: "Bachelor of Engineering (B.E.)",
-    institution: "Doon Valley Institute of Engineering & Technology",
-    period: "2008 – 2011",
     icon: GraduationCap,
+    degree: "MBA in Digital Marketing",
+    institution: "Delhi School of Internet Marketing",
+    period: "2019",
   },
   {
-    degree: "Diploma in Computer Engineering",
-    institution: "Hindu Institute of Technology",
-    period: "2005 – 2008",
-    icon: Monitor,
+    icon: School,
+    degree: "B.Com",
+    institution: "University of Delhi",
+    period: "2015-2018",
+  },
+  {
+    icon: Trophy,
+    degree: "Google Ads Certification",
+    institution: "Google",
+    period: "2020",
   },
 ];
 
@@ -22,7 +28,7 @@ export const Education = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 px-4 relative">
+    <section ref={ref} id="education" className="py-32 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
